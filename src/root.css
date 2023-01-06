@@ -1,3 +1,238 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .header {
+    @apply z-10 w-full h-[10.2rem];
+    transition: height 0.6s, transform 0.6s;
+    color: var(--white);
+    background-color: var(--black);
+  }
+
+  .header .header-wrapper {
+    @apply flex;
+    max-width: 1200px;
+  }
+
+  .header .site-logo {
+    width: 8rem;
+    height: 8rem;
+    transition: all 0.6s;
+  }
+
+  .header.elevated {
+    box-shadow: var(--shadow1);
+    position: fixed;
+    top: 0;
+    height: 6rem;
+  }
+
+  .header.elevated .site-logo {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  footer {
+    background-color: var(--ocean-blue);
+    z-index: 10;
+    color: var(--black) !important;
+  }
+  footer .footer-inner-wrapper {
+    max-width: 120rem;
+  }
+
+  footer .footer-bottom {
+    text-align: center;
+  }
+  footer .footer-bottom p {
+    color: var(--black);
+  }
+
+  /* Navigation */
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: fixed;
+    left: 2rem;
+    bottom: 10rem;
+    z-index: 10;
+  }
+
+  .navigation::before {
+    content: "";
+    opacity: 0;
+    width: 4.5rem;
+    height: 29rem;
+    position: absolute;
+    bottom: 3.5rem;
+    left: 0;
+    background-color: rgba(355, 355, 355, 0.9);
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+    border-bottom-left-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+    transition: opacity 0.4s;
+  }
+
+  .nav-item {
+    opacity: 0;
+    transform-origin: 0 0;
+    transform: translate(0, 3rem);
+    transition: opacity 0.35s, transform 0.5s;
+  }
+
+  @media (min-width: 768px) {
+    .nav-item {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+
+  .navigation.expanded .nav-item {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  .navigation.expanded .nav-item::before {
+    opacity: 1;
+  }
+
+  .navigation__accent {
+    width: 4.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .navigation__accent > div {
+    width: 0.2rem;
+    height: 12rem;
+    background-color: var(--ocean-blue);
+  }
+
+  /* FAB Button*/
+  .fab {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 3rem;
+    border: none;
+    z-index: 12;
+    opacity: 0.75;
+    transform: translate(0, 4rem);
+  }
+  .fab:hover,
+  .fab:focus {
+    opacity: 1;
+  }
+
+  @media (min-width: 768px) {
+    .fab {
+      display: none;
+    }
+  }
+}
+
+:root {
+  --black: #303841;
+  --white: #ffffff;
+  --gray: #777777;
+
+  --blue-jaunts: #467dcd;
+  --light-purple-fax: #f1f1ff;
+  --hip-black: #303842;
+  --geeking-orange: #f9674e;
+
+  --red-mans: #e23d3d;
+  --yee-purple: #52489c;
+  --ardy-green: #1b998b;
+  --wilding-yellow: #eec643;
+  --ocean-blue: #81d3ca;
+
+  --shadow-black: #22282f;
+}
+
+body {
+  color: var(--white);
+  background-color: var(--black);
+}
+
+p,
+a {
+  color: var(--white);
+}
+
+.sm-tab {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+/* icons */
+@font-face {
+  font-family: "sam-font";
+  src: url("/fonts/sam-font.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before {
+  font-family: "sam-font" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "sam-font" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-about:before {
+  content: "\64";
+}
+
+.icon-contact:before {
+  content: "\65";
+}
+
+.icon-home:before {
+  content: "\61";
+}
+
+.icon-projects:before {
+  content: "\62";
+}
+
+.icon-skills:before {
+  content: "\63";
+}
+
+.icon-linkedin:before {
+  content: "\6c";
+}
+
+.icon-instagram:before {
+  content: "\69";
+}
+
+.icon-gitlab:before {
+  content: "\67";
+}
+
+.icon-img {
+  max-width: 30px;
+}
