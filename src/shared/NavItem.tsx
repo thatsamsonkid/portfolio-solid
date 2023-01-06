@@ -5,8 +5,7 @@ const NavItem: Component<{ type: string; link: string }> = ({
   link,
 }: any) => {
   return (
-    <div>
-      {" "}
+    <div class="nav-item">
       <a href={link}>
         <i class={`icon icon-${type}`}></i>
       </a>

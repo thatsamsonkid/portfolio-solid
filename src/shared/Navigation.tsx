@@ -12,7 +12,7 @@ const Navigation: Component<any> = () => {
       <NavItem type="projects" link="#home"></NavItem>
       <NavItem type="skills" link="#home"></NavItem>
       <NavItem type="contact" link="#home"></NavItem>
-      <div class="navigation__accent d-none d-md-flex">
+      <div class="navigation__accent hidden md:flex">
         <div></div>
       </div>
       <button class="fab bg-ocean-blue" onClick={toggleNav}></button>
