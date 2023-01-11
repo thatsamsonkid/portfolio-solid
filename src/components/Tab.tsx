@@ -1,11 +1,22 @@
 import { Component } from "solid-js";
 
 const Tab: Component<any> = (props) => {
+  const isActiveTab = props.activeTab === props.tabId ? true : false;
+  const onClickHandler = (e: any) =>
+    !props.disabled && props.onTabClick(props.tabId);
+
   return (
-    <section class={`${props.class} flex flex-col md:flex-row gap-3`}>
-      <div class={props.imgColClass}>{props.imgEl}</div>
-      <div class={props.textColClass}>{props.children}</div>
-    </section>
+    <button
+      role="tab"
+      id={props.tabId}
+      ref={props.ref}
+      aria-controls={props.tabPanelId}
+      aria-selected={isActiveTab}
+      class={`${props.className}`}
+      onClick={onClickHandler}
+    >
+      <span>{props.label}</span>
+    </button>
   );
 };
 

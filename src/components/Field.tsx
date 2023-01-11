@@ -14,7 +14,6 @@ const Field = (props: any) => {
   const [fieldClasses, setFieldClasses] = createSignal("");
   const [fieldEl, setFieldEl] = createSignal(null);
   const id = createUniqueId();
-  const c = children(() => props.children);
   const determineFieldClasses = () => {
     setFieldClasses(
       classnames(

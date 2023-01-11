@@ -6,13 +6,6 @@
   .header {
     @apply z-10 w-full h-[10.2rem];
     transition: height 0.6s, transform 0.6s;
-    color: var(--white);
-    background-color: var(--black);
-  }
-
-  .header .header-wrapper {
-    @apply flex;
-    max-width: 1200px;
   }
 
   .header .site-logo {
@@ -343,7 +336,110 @@
   .circle-display.circle--secondary {
     @apply bg-ocean-blue text-hip-black border-2;
   }
-}
+
+  /* TABS Component */
+  .tabs{
+    @apply flex;
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+  }
+
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabs .tab-container {
+    @apply relative;
+  }
+
+  .tabs .tab-container.scrollable {
+    @apply overflow-hidden;
+  }
+
+  .scrollable-area {
+    @apply flex;
+  }
+
+  .tabs .tab-panel{
+    @apply hidden;
+    padding: 2.4rem;
+  }
+
+  .tabs .tab-highlight {
+    height: 2px;
+    position: absolute;
+    transition: width 0.3s, left 0.3s;
+    bottom: 0;
+    background-color: var(--ocean-blue);
+    /* left: props.leftOffset ? `${props.leftOffset}px` : 0,
+    width: props.width ? `${props.width}px` : '96px', */
+  }
+
+  .tabs .scroll-arrow {
+
+  }
+
+  .tabs .scroll-arrow.scroll-arrow--right {
+    transform: rotate(45deg);
+    right: 12px;
+  }
+
+  .tabs .scroll-arrow.scroll-arrow--left {
+    transform: rotate(225deg);
+    right: 8px;
+  }
+
+  .tabs .scroll-arrow:disabled:hover,.tabs .scroll-arrow:disabled:focus{
+    background-color: var(--hip-black);
+  }
+
+  .tabs .scroll-arrow:disabled{
+    @apply hidden;
+  }
+
+/* const ScrollArrow = styled.button<IArrowButton>`
+  border: none;
+  min-width: 1.8rem;
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid ${({ theme }) => theme && theme.primary};
+    border-bottom: none;
+    border-left: none;
+    position: absolute;
+    right: 12px;
+    top: 20px;
+
+    ${({ direction }) =>
+      direction === 'right' ? RightScrollArrowStyles : LeftScrollArrowStyles}
+  }
+
+  ${({ disabled }) => disabled && ArrowDisabled}
+
+  // theme
+  background-color: ${({ theme }) => theme && theme.background};
+
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme && theme.primary};
+    color: ${({ theme }) => theme && theme.contrastText};
+
+    &::before {
+      border: 1px solid ${({ theme }) => theme && theme.tabs && theme.tabs.hfg};
+      border-bottom: none;
+      border-left: none;
+    }
+  }
+`;*/
+} 
 
 :root {
   --black: #303841;

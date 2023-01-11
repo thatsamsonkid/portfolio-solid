@@ -16,13 +16,16 @@ const Header = () => {
   });
 
   return (
-    <header ref={headerEl} class={`header py-3 px-4 ${elevated()}`}>
+    <header
+      ref={headerEl}
+      class={`header bg-transparent py-3 px-4 ${elevated()}`}
+    >
       <WindowEventListener
         onscroll={(e: any) =>
           setScrollPos(e?.target?.scrollingElement?.scrollTop)
         }
       />
-      <div class="header-wrapper">
+      <div class="flex max-w-[1200px] justify-end mx-auto">
         <div class="site-logo ms-auto position-relative">
           <img src="/images/SM-LOGO.png" alt="" />
         </div>

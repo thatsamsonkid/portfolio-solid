@@ -34,7 +34,7 @@ export default function Home() {
           class="flex flex-col content-center items-center min-h-screen"
           id="home"
         >
-          <div class="pb-40">
+          <div class="pb-40 mt-40">
             <h1 class="mt-0 text-3xl leading-7 tracking-wide text-center text-white md:text-6xl md:tracking-widest">
               Sammy Mohamed
             </h1>
@@ -89,7 +89,7 @@ export default function Home() {
           <div class="max-w-[900px] mx-auto">
             <h1 class="text-5xl font-bold text-left mb-6">Projects</h1>
             <ul class="list-none flex p-0 justify-evenly flex-wrap mb-7">
-              <For each={skills}>
+              {/* <For each={skills}>
                 {(skill, i) => (
                   <li class="mx-4 my-5">
                     <Circle
@@ -102,7 +102,7 @@ export default function Home() {
                     </Circle>
                   </li>
                 )}
-              </For>
+              </For> */}
             </ul>
           </div>
         </section>
