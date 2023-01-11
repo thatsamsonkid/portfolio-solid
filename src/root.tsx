@@ -15,12 +15,22 @@ import {
 } from "solid-start";
 import "./root.css";
 
+declare module "solid-js" {
+  namespace JSX {
+    interface Directives {
+      formSubmit: (props: any) => void;
+      validate: [(props: any) => Promise<any>];
+    }
+  }
+}
+
 export default function Root() {
   const location = useLocation();
   const active = (path: string) =>
     path == location.pathname
       ? "border-sky-600"
       : "border-transparent hover:border-sky-600";
+
   return (
     <Html lang="en">
       <Head>

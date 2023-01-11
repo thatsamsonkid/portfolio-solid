@@ -140,6 +140,209 @@
       display: none;
     }
   }
+
+  /**
+  * Field Component
+  **/
+  .field {
+    position: relative;
+    padding: 1rem 0;
+    margin: 1rem 0;
+    width: 100%;
+
+    /* Solves issues with list/dropdowns */
+    z-index: 2;
+  }
+  .field .field-contents {
+    padding: 0 1rem;
+    border-radius: 1.4rem;
+    position: relative;
+    padding: 0.5rem 1rem;
+  }
+
+  .field label {
+    position: absolute;
+    margin: 0;
+    top: 1.2rem;
+    left: 1.6rem;
+    font-size: 1.2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 24px);
+    pointer-events: none;
+    transform-origin: left top;
+    transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+      transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+      max-width 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  }
+
+  .field.float-label.filled label,
+  .field.focused.float-label label,
+  .field.has-placeholder label {
+    opacity: 1 !important;
+    background: transparent;
+  }
+
+  .field.filled label {
+    opacity: 0;
+  }
+
+  .field.focused label,
+  .field.focused.filled label,
+  .field.float-label.filled label {
+    opacity: 0;
+  }
+
+  input,
+  textarea {
+    border: none;
+    width: 100%;
+    font-size: 1.2rem;
+    font-family: inherit;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: 0;
+  }
+
+  input {
+    height: 1.4375em;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 4.4rem;
+    max-height: 10rem;
+  }
+
+  /* prefix  */
+
+  .field__prefix {
+    position: relative;
+  }
+
+  .field__prefix img {
+    position: absolute;
+    left: 1rem;
+    top: 0.3rem;
+  }
+
+  .field.has-prefix input {
+    padding-left: 3rem;
+  }
+
+  /* Error  */
+  .error {
+    padding-top: 0.5rem;
+    padding-left: 1.6rem;
+  }
+
+  .error--msg {
+    transform-origin: 0 0;
+    transform: rotateX(270deg);
+    transition: transform 200ms ease;
+    position: absolute;
+  }
+
+  .field.has-error .error--msg {
+    transform: rotateX(360deg);
+  }
+
+  /* Theme */
+  input,
+  textarea,
+  .field-contents {
+    background-color: var(--hip-black);
+    color: var(--white);
+  }
+
+  label {
+    color: var(--white);
+  }
+  label.required {
+    color: var(--red-mans);
+  }
+
+  .field.filled .field-contents,
+  .field.focused .field-contents {
+    outline-color: var(--ocean-blue);
+  }
+
+  .field.filled label,
+  .field.focused label {
+    color: var(--ocean-blue);
+  }
+
+  /* // Error Theme */
+  .field.has-error label,
+  .field.has-error input {
+    color: var(--red-mans);
+  }
+
+  .field.has-error .field-contents {
+    outline: 2px solid var(--red-mans);
+  }
+
+  .field.has-error input,
+  .field.has-error textarea {
+    caret-color: var(--red-mans);
+  }
+
+  .error--msg {
+    color: var(--red-mans);
+  }
+
+  /* Outline Field Styles*/
+  .field .field-contents {
+    outline: 2px solid var(--white);
+  }
+
+  .field.float-label .field-contents {
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+  }
+
+  .field.float-label.filled label,
+  .field.focused.float-label label,
+  .field.has-placeholder label {
+    transform: translate(-0.5rem, -2rem) scale(0.75);
+    background-color: var(--hip-black);
+    padding: 0 0.75rem;
+  }
+
+  /* Cirlce  */
+  .circle-display {
+    border: 1px solid var(--blue);
+    width: 125px;
+    height: 125px;
+    border-radius: 1000px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-flow: column;
+    padding: 15px;
+    box-shadow: 4px 8px 10px 0.5px #22282f;
+  }
+
+  .circle-display.circle--primary {
+    @apply bg-hip-black text-ocean-blue border-2 border-ocean-blue border-solid;
+  }
+
+  .circle-display.circle--primary .circle-display__description,
+  .circle-display.circle--secondary .circle-display__description {
+    @apply text-gray italic text-xs;
+  }
+
+  .circle-display.circle--secondary {
+    @apply bg-ocean-blue text-hip-black border-2;
+  }
 }
 
 :root {
@@ -244,4 +447,16 @@ a {
 
 .icon-img {
   max-width: 30px;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+.grecaptcha-terms {
+  margin: 0 0 10px;
+}
+.grecaptcha-terms p,
+.grecaptcha-terms a {
+  font-size: 10px;
 }

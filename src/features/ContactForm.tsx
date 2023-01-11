@@ -1,4 +1,5 @@
 import { createSignal } from "solid-js";
+import Field from "~/components/Field";
 import { useForm } from "~/utils/contact-form-validator";
 const ContactForm = () => {
   const [loading, setLoading] = createSignal(false);
@@ -18,33 +19,24 @@ const ContactForm = () => {
     // const exists = await fetchUserName(value);
     return value && `${value} is already being used`;
   };
-  //   const matchesPassword = ({ value }) =>
-  //     value === fields.password ? false : "Passwords must Match";
 
   return (
     <form use:formSubmit={onFormSubmit}>
-      <div class="sm-form-field--square">
-        <label for="fullName">Full Name</label>
-        <input
-          type="text"
-          name="fullName"
-          id=""
-          use:validate={[userNameExists]}
-        />
-      </div>
+      <Field floatLabel={true} name="fullName">
+        Name
+      </Field>
 
-      <div class="sm-form-field--square">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="" />
-      </div>
+      <Field floatLabel={true} name="email">
+        Email
+      </Field>
 
-      <div class="sm-form-field--square">
-        <label for="request">Questions &amp; Comments</label>
-        <input type="textarea" name="request" id="" />
-      </div>
+      <Field floatLabel={true} type="textarea">
+        Request
+      </Field>
+
       <div class="contact-form-footer d-flex justify-content-between align-content-center">
         <div class="grecaptcha-terms mb-md-0">
-          <p class="sm-body mt-3">
+          <p class="sm-body mt-3 text-left">
             This site is protected by reCAPTCHA and the Google&nbsp;
             <a href="https://policies.google.com/privacy">Privacy Policy</a>
             &nbsp;and&nbsp;
@@ -53,8 +45,11 @@ const ContactForm = () => {
           </p>
         </div>
 
-        <div class="d-flex flex-row-reverse">
-          <button class="hmdva-button hmdva-button--primary" type="submit">
+        <div class="flex flex-row-reverse">
+          <button
+            class="bg-white text-hip-black min-h-[40px] min-w-[120px] rounded-3xl self-end mt-5"
+            type="submit"
+          >
             Submit
           </button>
         </div>
